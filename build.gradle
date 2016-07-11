@@ -22,8 +22,8 @@ flyway {
     url = String.format(
             "jdbc:mysql://%s:%s/%s?user=%s&password=%s&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull",
             environment.getOrDefault("DB_HOST", "localhost"),
-            environment.getOrDefault("DB_PORT", 3307),
-            environment.getOrDefault("DB_NAME", "data_store"),
+            environment.getOrDefault("DB_PORT", "3306"),
+            environment.getOrDefault("DB_NAME", "jerseydb"),
             environment.getOrDefault("DB_USERNAME", "mysql"),
             environment.getOrDefault("DB_PASSWORD", "mysql"))
 }
