@@ -8,7 +8,7 @@ public interface OrderRepository {
 
   HashMap[] find(String userId);
 
-  HashMap findById(String userId, String orderId);
+  Order findById(String userId, String orderId);
 
   int save(Map info, String userId);
 

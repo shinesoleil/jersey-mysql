@@ -1,5 +1,6 @@
 package com.thoughtworks.api.records;
 
+import com.thoughtworks.api.core.Order;
 import com.thoughtworks.api.mappers.OrderItemMapper;
 import com.thoughtworks.api.mappers.OrderMapper;
 import com.thoughtworks.api.mappers.ProductMapper;
@@ -32,7 +33,7 @@ public class OrderRepository implements com.thoughtworks.api.core.OrderRepositor
   }
 
   @Override
-  public HashMap findById(String userId, String orderId) {
+  public Order findById(String userId, String orderId) {
     return orderMapper.findById(userId, orderId);
   }
 
@@ -53,7 +54,7 @@ public class OrderRepository implements com.thoughtworks.api.core.OrderRepositor
     for (int i = 0; i< orderItems.size(); i++) {
       Map orderItem = (Map) orderItems.get(i);
 
-      float price = Float.valueOf(productMapper.findById(orderItem.get("product_id").toString()).getPrice());
+      float price = productMapper.findById(orderItem.get("product_id").toString()).getPrice();
 
       orderItemMapper.save(price,
         Integer.valueOf(orderItem.get("quantity").toString()),

@@ -23,7 +23,7 @@
         <result property="address" column="address"></result>
         <result property="phone" column="phone"></result>
         <collection property="orderItems" ofType="com.thoughtworks.api.records.OrderItemRecord">
-            <id property="id" column="id"></id>
+            <id property="id" column="item_id"></id>
             <result property="amount" column="amount"></result>
             <result property="quantity" column="quantity"></result>
         </collection>

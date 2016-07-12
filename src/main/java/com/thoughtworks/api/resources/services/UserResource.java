@@ -1,5 +1,6 @@
 package com.thoughtworks.api.resources.services;
 
+import com.thoughtworks.api.core.Order;
 import com.thoughtworks.api.core.OrderRepository;
 import com.thoughtworks.api.core.PaymentRepository;
 import com.thoughtworks.api.core.UserRepository;
@@ -64,12 +65,9 @@ public class UserResource {
   @GET
   @Path("{userId}/orders/{orderId}")
   @Produces(MediaType.APPLICATION_JSON)
-  public HashMap findOrderById(@PathParam("userId") String userId,
-                               @PathParam("orderId") String orderId) {
-    HashMap order =  orderRepository.findById(userId, orderId);
-    HashMap[] orderItems = orderRepository.findOrderItemByOrderId(orderId);
-
-    order.put("order_item", orderItems);
+  public Order findOrderById(@PathParam("userId") String userId,
+                             @PathParam("orderId") String orderId) {
+    Order order =  orderRepository.findById(userId, orderId);
     return order;
   }
 
