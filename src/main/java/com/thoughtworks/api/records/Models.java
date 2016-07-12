@@ -5,7 +5,6 @@ import com.google.inject.Scopes;
 import com.thoughtworks.api.core.OrderRepository;
 import com.thoughtworks.api.core.ProductRepository;
 import com.thoughtworks.api.core.UserRepository;
-import com.thoughtworks.api.core.PaymentRepository;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.*;
 import org.apache.ibatis.type.TypeHandler;
@@ -56,7 +55,7 @@ public class Models extends AbstractModule {
     bind(ProductRepository.class).to(com.thoughtworks.api.records.ProductRepository.class);
     bind(UserRepository.class).to(com.thoughtworks.api.records.UserRepository.class);
     bind(OrderRepository.class).to(com.thoughtworks.api.records.OrderRepository.class);
-    bind(PaymentRepository.class).to(com.thoughtworks.api.records.PaymentRepository.class);
+//    bind(PaymentRepository.class).to(com.thoughtworks.api.records.PaymentRepository.class);
 //    bind(UserRepository.class).to(com.thoughtworks.api.records.UserRepository.class);
 //    bind(StackRepository.class).to(com.thoughtworks.api.records.StackRepository.class);
 //    bind(ApplicationRepository.class).to(com.thoughtworks.api.records.ApplicationRepository.class);

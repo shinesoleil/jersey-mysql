@@ -78,7 +78,6 @@ public class UserResource {
   @Consumes(MediaType.APPLICATION_JSON)
   public int saveOrder(Map<String, Object> info,
                        @PathParam("userId") String userId) {
-    System.out.println(userId);
     return orderRepository.save(info, userId);
   }
 

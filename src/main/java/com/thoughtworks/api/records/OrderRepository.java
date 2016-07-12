@@ -57,8 +57,8 @@ public class OrderRepository implements com.thoughtworks.api.core.OrderRepositor
 
       orderItemMapper.save(price,
         Integer.valueOf(orderItem.get("quantity").toString()),
-        Integer.valueOf(orderItem.get("product_id").toString()),
-        Integer.valueOf(orderId));
+        orderItem.get("product_id").toString(),
+        orderId);
     }
 
     return 201;
@@ -66,6 +66,6 @@ public class OrderRepository implements com.thoughtworks.api.core.OrderRepositor
 
   @Override
   public HashMap[] findOrderItemByOrderId(String orderId) {
-    return orderItemMapper.findByOrderId(Integer.valueOf(orderId));
+    return orderItemMapper.findByOrderId(orderId);
   }
 }

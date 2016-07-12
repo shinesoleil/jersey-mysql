@@ -10,10 +10,10 @@
         <!--SELECT * FROM order_form WHERE id = #{orderId} AND user_id = #{userId}-->
     <!--</select>-->
 
-    <!--<insert id="save">-->
-        <!--INSERT INTO order_form (name, address, phone, user_id)-->
-        <!--VALUES (#{name}, #{address}, #{phone}, #{userId})-->
-    <!--</insert>-->
+    <insert id="save">
+        INSERT INTO order_form (id, name, address, phone, user_id)
+        VALUES (#{id}, #{name}, #{address}, #{phone}, #{userId})
+    </insert>
 
     <!--<select id="countOrders" resultType="int">-->
         <!--SELECT COUNT(*) FROM product_order;-->
