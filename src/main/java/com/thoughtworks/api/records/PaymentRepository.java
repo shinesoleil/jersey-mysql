@@ -1,7 +1,5 @@
 package com.thoughtworks.api.records;
 
-import com.thoughtworks.api.mappers.PaymentMapper;
-
 import javax.inject.Inject;
 import java.util.HashMap;
 

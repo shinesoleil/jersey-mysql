@@ -28,12 +28,12 @@ public class OrderRepository implements com.thoughtworks.api.core.OrderRepositor
 
   @Override
   public HashMap[] find(String userId) {
-    return orderMapper.find(Integer.valueOf(userId));
+    return orderMapper.find(userId);
   }
 
   @Override
   public HashMap findById(String userId, String orderId) {
-    return orderMapper.findById(Integer.valueOf(userId), Integer.valueOf(orderId));
+    return orderMapper.findById(userId, orderId);
   }
 
   @Override
@@ -45,7 +45,7 @@ public class OrderRepository implements com.thoughtworks.api.core.OrderRepositor
       info.get("name").toString(),
       info.get("address").toString(),
       info.get("phone").toString(),
-      Integer.valueOf(userId));
+      userId);
 
 
     ArrayList orderItems = (ArrayList) info.get("order_item");
