@@ -6,10 +6,7 @@ import com.thoughtworks.api.mappers.OrderMapper;
 import com.thoughtworks.api.mappers.ProductMapper;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class OrderRepository implements com.thoughtworks.api.core.OrderRepository {
 
@@ -28,7 +25,7 @@ public class OrderRepository implements com.thoughtworks.api.core.OrderRepositor
   }
 
   @Override
-  public HashMap[] find(String userId) {
+  public List<Order> find(String userId) {
     return orderMapper.find(userId);
   }
 

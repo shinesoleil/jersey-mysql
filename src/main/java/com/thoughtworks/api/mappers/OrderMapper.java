@@ -3,10 +3,10 @@ package com.thoughtworks.api.mappers;
 import com.thoughtworks.api.core.Order;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.HashMap;
+import java.util.List;
 
 public interface OrderMapper {
-  HashMap[] find(@Param("userId") String userId);
+  List<Order> find(@Param("userId") String userId);
 
   Order findById(@Param("userId") String userId,
                  @Param("orderId") String orderId);

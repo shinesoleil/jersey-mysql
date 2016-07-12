@@ -50,16 +50,8 @@ public class UserResource {
   @GET
   @Path("{userId}/orders")
   @Produces(MediaType.APPLICATION_JSON)
-  public HashMap[] listOrders(@PathParam("userId") String userId) {
-    HashMap[] orders =  orderRepository.find(userId);
-
-
-    for (HashMap order: orders) {
-      HashMap[] orderItems = orderRepository.findOrderItemByOrderId(order.get("ID").toString());
-      order.put("order_item", orderItems);
-    }
-
-    return orders;
+  public List<Order> listOrders(@PathParam("userId") String userId) {
+    return  orderRepository.find(userId);
   }
 
   @GET

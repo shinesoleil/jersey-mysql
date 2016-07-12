@@ -2,9 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.thoughtworks.api.mappers.OrderMapper">
 
-    <!--<select id="find" resultType="Hashmap">-->
-        <!--SELECT * FROM order_form WHERE user_id = #{userId}-->
-    <!--</select>-->
+    <select id="find" resultMap="records.orderResultMap">
+        SELECT
+        order_form.id as id,
+        order_form.name as name,
+        order_form.address as address,
+        order_form.phone as phone,
+        order_item.id as item_id,
+        order_item.amount as amount,
+        order_item.quantity as quantity
+        FROM order_form
+        left outer join order_item
+        on order_form.id = order_item.order_id
+        where order_form.user_id = #{userId}
+    </select>
 
     <select id="findById" resultMap="records.orderResultMap">
         SELECT
@@ -19,15 +30,10 @@
         left outer join order_item
         on order_form.id = order_item.order_id
         where order_form.user_id = #{userId} and order_form.id = #{orderId}
-
     </select>
 
     <insert id="save">
         INSERT INTO order_form (id, name, address, phone, user_id)
         VALUES (#{id}, #{name}, #{address}, #{phone}, #{userId})
     </insert>
-
-    <!--<select id="countOrders" resultType="int">-->
-        <!--SELECT COUNT(*) FROM product_order;-->
-    <!--</select>-->
 </mapper>
